@@ -13,7 +13,7 @@ from mcp.client.session import ClientSession
 load_dotenv()
 gh_client = OpenAI(
     base_url="https://models.inference.ai.azure.com", 
-    api_key=os.environ.get("GITHUB_TOKEN")
+    api_key=os.environ.get("GITHUB_TOKEN", "dummy_token_to_prevent_startup_crash")
 )
 
 app = FastAPI()
