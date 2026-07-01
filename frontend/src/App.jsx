@@ -28,7 +28,9 @@ function App() {
     setPlaybook(null);
     
     try {
-      const response = await fetch('http://localhost:8000/generate', {
+      // Use Vercel Environment Variable if available, fallback to localhost for local dev
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/generate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
